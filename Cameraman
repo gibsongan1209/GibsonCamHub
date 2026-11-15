@@ -1,0 +1,28 @@
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "GemPanel"
+gui.Parent = player:WaitForChild("PlayerGui")
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.fromOffset(250, 180)
+frame.Position = UDim2.new(0.5, -125, 0.5, -90)
+frame.Parent = gui
+
+local amount = Instance.new("TextBox")
+amount.Size = UDim2.new(1, -20, 0, 40)
+amount.Position = UDim2.fromOffset(10, 15)
+amount.PlaceholderText = "Enter Gems amount"
+amount.Text = ""
+amount.Parent = frame
+
+local add = Instance.new("TextButton")
+add.Size = UDim2.new(1, -20, 0, 45)
+add.Position = UDim2.fromOffset(10, 65)
+add.Text = "ADD GEMS"
+add.Parent = frame
+
+add.MouseButton1Click:Connect(function()
+    print("Requested Gems:", amount.Text)
+end)
